@@ -42,6 +42,80 @@ class SinglyLinkedList {
         this.tail = newTail;
         this.tail.next = null;
         this.length--;
+
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
         return current;
+    }
+
+    // remove and return first item from the linked list and set current heads next value to new head
+    shift() {
+        if (!this.head) return undefined;
+
+        let oldHead = this.head;
+        this.head = oldHead.next;
+        this.length--;
+
+        if (this.length === 0) {
+            this.tail = null;
+        }
+        return oldHead;
+    }
+
+    // add new node to beginning of list
+    unshift(val) {
+        let newNode = new Node(val);
+
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+
+        this.length++;
+        return this;
+    }
+
+    // retrieve node by position in the linked list
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+
+        let count = 0;
+        let current = this.head;
+
+        while (count !== index) {
+            current = current.next;
+            count++;
+        }
+
+        return current;
+    }
+
+    set(index, val) {
+        let foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+
+    // insert new node at an certain position
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        let newNode = new Node(val);
+        let prev = this.get(index - 1);
+        let temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
     }
 }
