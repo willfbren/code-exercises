@@ -1,5 +1,4 @@
 function sameFrequency(num1, num2) {
-    // good luck. Add any arguments you deem necessary.
     let str1 = num1.toString();
     let str2 = num2.toString();
 
