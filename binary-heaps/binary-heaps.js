@@ -1,0 +1,6 @@
+// for any index of an array n...
+// left child is stored at 2n + 1
+// right child is stored at 2n + 2
+
+// for any child node at index n...
+// its parent is at index (n - 1) / 2 (floored - just chop of the decimal)
