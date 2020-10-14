@@ -5,6 +5,8 @@
 // for any child node at index n...
 // its parent is at index (n - 1) / 2 (floored - just chop of the decimal)
 
+
+// time complexity - insert/removal O(log n), search O(n)
 class MaxBinaryHeap {
     constructor() {
         this.values = [];
