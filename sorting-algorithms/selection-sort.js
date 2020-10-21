@@ -1,4 +1,7 @@
-// time complexity: O(n^2)
+// time complexity (best): O(n^2)
+// time complexity (average): O(n^2)
+// time complexity (worst): O(n^2)
+// space complexity: O(1)
 
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {

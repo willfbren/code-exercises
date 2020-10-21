@@ -1,3 +1,7 @@
+// time complexity (best): O(n)
+// time complexity (average): O(n^2)
+// time complexity (worst): O(n^2)
+// space complexity: O(1)
 function insertionSort(arr) {
     for (let i = 1; i < arr.length; i++) {
         let current = arr[i];
