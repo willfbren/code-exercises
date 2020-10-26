@@ -1,3 +1,6 @@
+// time complexity: O(n log n) (best, worse, average)
+// space complexity: O(n)
+
 function merge(arr1, arr2) {
     let results = [];
     let i = 0,
