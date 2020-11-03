@@ -26,8 +26,8 @@ class Graph {
     }
 
     removeEdge(vertex1, vertex2) {
-        this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(v => v !== vertex2);
-        this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(v => v !== vertex1);
+        this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter((v) => v !== vertex2);
+        this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter((v) => v !== vertex1);
     }
 
     removeVertex(vertex) {
@@ -39,4 +39,42 @@ class Graph {
         // may not do this in the real application of a graph
         delete this.adjacencyList[vertex];
     }
+
+    dfsRecursive(start) {
+        const result = [];
+        const visited = {};
+        // preserve this keyword, because this changes in helper function
+        const adjacencyList = this.adjacencyList;
+
+        // helper function
+        (function dfs(vertex) {
+            if (!vertex) return null;
+            visited[vertex] = true;
+            result.push(vertex);
+            adjacencyList[vertex].forEach((neighbor) => {
+                if (!visited[neighbor]) {
+                    return dfs(neighbor);
+                }
+            });
+        })(start);
+
+        return result;
+    }
 }
+
+let g = new Graph();
+
+g.addVertex('A');
+g.addVertex('B');
+g.addVertex('C');
+g.addVertex('D');
+g.addVertex('E');
+g.addVertex('F');
+
+g.addEdge('A', 'B');
+g.addEdge('A', 'C');
+g.addEdge('B', 'D');
+g.addEdge('C', 'E');
+g.addEdge('D', 'E');
+g.addEdge('D', 'F');
+g.addEdge('E', 'F');
