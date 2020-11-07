@@ -61,6 +61,7 @@ class Graph {
         return result;
     }
 
+    // will return slightly different order than dfs recursive
     dfsIterative(start) {
         const stack = [start];
         const result = [];
