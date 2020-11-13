@@ -3,13 +3,32 @@
 
 // This function should take in a value and add a node to the end of the SinglyLinkedList. It should return the SinglyLinkedList.
 
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class SinglyLinkedList {
+    constructor(val) {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+
+    push() {
+        // YOUR CODE GOES HERE
+    }
+}
+
 // Examples
 let singlyLinkedList = new SinglyLinkedList();
 singlyLinkedList.push(5); //singlyLinkedList
 singlyLinkedList.length; // 1
 singlyLinkedList.head.val; // 5
 singlyLinkedList.tail.val; // 5
- 
+
 singlyLinkedList.push(10); // singlyLinkedList
 singlyLinkedList.length; // 2
 singlyLinkedList.head.val; // 5
